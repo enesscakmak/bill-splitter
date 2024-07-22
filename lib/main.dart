@@ -34,6 +34,15 @@ class UTip extends StatefulWidget {
 class _UTipState extends State<UTip> {
   int _personCount = 1;
   double _tipPercentage = 0.0;
+  double _billTotal = 0.0;
+
+  double totalPerPerson() {
+    return (_billTotal * _tipPercentage) + (_billTotal / _personCount);
+  }
+
+  double totalTip() {
+    return (_billTotal * _tipPercentage);
+  }
 
   //Methods
   void increment() {
@@ -53,6 +62,8 @@ class _UTipState extends State<UTip> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    double total = totalPerPerson();
+    double totalT = totalTip();
     final style = theme.textTheme.titleMedium!.copyWith(
         color: theme.colorScheme.primary, fontWeight: FontWeight.bold);
     return Scaffold(
@@ -77,7 +88,7 @@ class _UTipState extends State<UTip> {
                         style: style,
                       ),
                       Text(
-                        "\$23.98",
+                        "$total",
                         style: style.copyWith(
                             color: theme.colorScheme.primary,
                             fontSize: theme.textTheme.displaySmall?.fontSize),
@@ -96,10 +107,13 @@ class _UTipState extends State<UTip> {
                 child: Column(
                   children: [
                     BillAmountField(
+                      billAmount: _billTotal.toString(),
                       onChanged: (value) {
-                        print("Amount: $value");
+                        setState(() {
+                          _billTotal = double.parse(value);
+                        });
+                        ;
                       },
-                      billAmount: "100",
                     ),
                     //Split Bill Area
                     Row(
@@ -125,7 +139,7 @@ class _UTipState extends State<UTip> {
                           style: theme.textTheme.titleMedium,
                         ),
                         Text(
-                          "\$20",
+                          "$totalT",
                           style: theme.textTheme.titleMedium,
                         )
                       ],
