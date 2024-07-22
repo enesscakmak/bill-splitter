@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:utip/widgets/bill_amount_field.dart';
 import 'package:utip/widgets/person_counter.dart';
 import 'package:utip/widgets/tip_slider.dart';
+import 'package:utip/widgets/total_per_person.dart';
 
 void main() {
   runApp(const MyApp());
@@ -139,45 +140,5 @@ class _UTipState extends State<UTip> {
             )
           ],
         ));
-  }
-}
-
-class TotalPerPerson extends StatelessWidget {
-  const TotalPerPerson({
-    super.key,
-    required this.theme,
-    required this.style,
-    required this.total,
-  });
-
-  final ThemeData theme;
-  final TextStyle style;
-  final double total;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-          padding: const EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
-            color: theme.colorScheme.inversePrimary,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Column(
-            children: [
-              Text(
-                "Total per person: ",
-                style: style,
-              ),
-              Text(
-                total.toStringAsFixed(2),
-                style: style.copyWith(
-                    color: theme.colorScheme.primary,
-                    fontSize: theme.textTheme.displaySmall?.fontSize),
-              ),
-            ],
-          )),
-    );
   }
 }
