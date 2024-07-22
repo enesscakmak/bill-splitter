@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:utip/widgets/bill_amount_field.dart';
 import 'package:utip/widgets/person_counter.dart';
+import 'package:utip/widgets/tip_row.dart';
 import 'package:utip/widgets/tip_slider.dart';
 import 'package:utip/widgets/total_per_person.dart';
 
@@ -95,34 +96,13 @@ class _UTipState extends State<UTip> {
                       },
                     ),
                     //Split Bill Area
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Split",
-                          style: theme.textTheme.titleMedium,
-                        ),
-                        PersonCounter(
-                            theme: theme,
-                            personCount: _personCount,
-                            onIncrement: increment,
-                            onDecrement: decrement),
-                      ],
-                    ),
+                    PersonCounter(
+                        theme: theme,
+                        personCount: _personCount,
+                        onIncrement: increment,
+                        onDecrement: decrement),
                     // TİP SECTİON
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Tip",
-                          style: theme.textTheme.titleMedium,
-                        ),
-                        Text(
-                          "$totalT",
-                          style: theme.textTheme.titleMedium,
-                        )
-                      ],
-                    ),
+                    TipRow(theme: theme, totalT: totalT),
                     // Slider Text
                     Text("${(_tipPercentage * 100).round()}%"),
                     // Tip Slider
