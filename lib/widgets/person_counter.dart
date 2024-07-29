@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PersonCounter extends StatelessWidget {
-  const PersonCounter({
+  const PersonCounter(
+    ThemeData themeData, {
     super.key,
     required this.theme,
     required int personCount,
