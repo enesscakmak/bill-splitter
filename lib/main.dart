@@ -6,6 +6,7 @@ import 'package:utip/widgets/bill_amount_field.dart';
 import 'package:utip/widgets/person_counter.dart';
 import 'package:utip/widgets/tip_row.dart';
 import 'package:utip/widgets/tip_slider.dart';
+import 'package:utip/widgets/toggle_theme_button.dart';
 import 'package:utip/widgets/total_per_person.dart';
 
 void main() {
@@ -54,13 +55,8 @@ class _UTipState extends State<UTip> {
     final style = theme.textTheme.titleMedium!.copyWith(
         color: theme.colorScheme.primary, fontWeight: FontWeight.bold);
     return Scaffold(
-        appBar: AppBar(title: const Text('Bill Splitter'), actions: [
-          IconButton(
-              onPressed: () => themeProvider.toggleTheme(),
-              icon: themeProvider.isDarkMode
-                  ? Icon(Icons.wb_sunny)
-                  : Icon(Icons.nightlight_round))
-        ]),
+        appBar: AppBar(
+            title: const Text('Bill Splitter'), actions: [ToggleThemeButton()]),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
