@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:utip/providers/ThemeProvider.dart';
 import 'package:utip/providers/TipCalculatorModel.dart';
 import 'package:utip/widgets/bill_amount_field.dart';
 import 'package:utip/widgets/person_counter.dart';
@@ -8,8 +9,12 @@ import 'package:utip/widgets/tip_slider.dart';
 import 'package:utip/widgets/total_per_person.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => TipCalculatorModel(), child: const MyApp()));
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider(create: (context) => TipCalculatorModel()),
+      ChangeNotifierProvider(create: (context) => ThemeProvider()),
+    ], child: const MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -42,13 +47,18 @@ class _UTipState extends State<UTip> {
     var theme = Theme.of(context);
 
     final model = Provider.of<TipCalculatorModel>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
 
     final style = theme.textTheme.titleMedium!.copyWith(
         color: theme.colorScheme.primary, fontWeight: FontWeight.bold);
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Bill Splitter'),
-        ),
+        appBar: AppBar(title: const Text('Bill Splitter'), actions: [
+          IconButton(
+              onPressed: () => themeProvider.toggleTheme(),
+              icon: themeProvider.isDarkMode
+                  ? Icon(Icons.wb_sunny)
+                  : Icon(Icons.nightlight_round))
+        ]),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
