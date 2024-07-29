@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:utip/widgets/total_per_person.dart';
 
 class TipCalculatorModel with ChangeNotifier {
   int _personCount = 1;
