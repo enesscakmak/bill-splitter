@@ -1,16 +1,14 @@
-# utip
+# Bill Splitter
 
-A new Flutter project.
+A Bill Splitter project for learning Flutter that let's you ⤵  
 
-## Getting Started
+  - Enter the bill amount  
+  - Seperate per person with easy to use buttons
+  - Enter the tip percentage you want
+  - Select the day and night themes by your preference
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+<img width="25%" height="10%" src="https://github.com/user-attachments/assets/038eb5ee-4b8f-4376-9531-5c583b88c19e">
+    "              "                  
+<img width="25%" height="10%" src="https://github.com/user-attachments/assets/05525141-fa83-4618-8ed2-53a1d755b08a">
+</p>
