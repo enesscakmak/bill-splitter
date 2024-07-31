@@ -12,3 +12,7 @@ A Bill Splitter project for learning Flutter that let's you ⤵
     "              "                  
 <img width="25%" height="10%" src="https://github.com/user-attachments/assets/05525141-fa83-4618-8ed2-53a1d755b08a">
 </p>
+
+
+
+    Made with the help of "Flutter & Dart: Complete App Development Course" by Paulo Dichone
